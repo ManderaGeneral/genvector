@@ -1,6 +1,6 @@
 
 
-module.export = class Vec2 {
+class Vec2 {
     constructor(x, y = null) {
         if (x.hasOwnProperty("x")) {
             y = x.y;
