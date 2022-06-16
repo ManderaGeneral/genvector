@@ -83,11 +83,15 @@ _Vec2GlobalStuff.previousTouchVec2 = null;
 _Vec2GlobalStuff.pinchDistance = null;
 
 
-Touch.prototype.vec2 = function () {
-    return new Vec2(
-        this.pageX,
-        this.pageY
-    );
+// Touch isn't supported by Jest jsdom environment
+// https://github.com/jsdom/jsdom/issues/2152
+if (window.Touch !== undefined) {
+    Touch.prototype.vec2 = function () {
+        return new Vec2(
+            this.pageX,
+            this.pageY
+        );
+    }
 }
 
 Event.prototype.pinchAmount = function () {
@@ -101,8 +105,7 @@ Event.prototype.pinchAmount = function () {
         if (oldDistance !== null) {
             return amount;
         }
-    }
-    else {
+    } else {
         _Vec2GlobalStuff.pinchDistance = null;
     }
     return 0;
@@ -129,22 +132,20 @@ Event.prototype.vec2 = function () {
 };
 
 
-
-
-Element.prototype.getPos = function (topLeft=false) {
+Element.prototype.getPos = function (topLeft = false) {
     let pos = new Vec2(this.style.left, this.style.top);
     if (!topLeft) pos = pos.add(this.getFullSize().div(2));
     return pos;
 }
 
-Element.prototype.getGlobalPos = function (topLeft=false) {
+Element.prototype.getGlobalPos = function (topLeft = false) {
     const rect = this.getBoundingClientRect();
     let pos = new Vec2(rect.left + this.clientLeft, rect.top + this.clientTop);
     if (!topLeft) pos = pos.add(this.getFullSize().div(2));
     return pos;
 }
 
-Element.prototype.setPos = function (vec2, topLeft=false) {
+Element.prototype.setPos = function (vec2, topLeft = false) {
     vec2 = new Vec2(vec2);
     if (!topLeft) {
         vec2 = vec2.sub(this.getFullSize().div(2))
@@ -168,3 +169,6 @@ Element.prototype.setSize = function (vec2) {
     this.style.height = vec2.y + "px";
 }
 
+
+
+module.exports = Vec2;

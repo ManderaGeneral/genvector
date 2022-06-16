@@ -1,18 +1,21 @@
 {
     "name": "mandera-vec2",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "description": "",
+    "main": "vec2.js",
     "scripts": {
         "start": "parcel index.html",
-        "build": "parcel build index.html"
-    },
-    "dependencies": {
-
+        "build": "parcel build index.html",
+        "test": "jest"
     },
     "devDependencies": {
+        "jest": "^28.1.1",
+        "jest-environment-jsdom": "^28.1.1",
         "parcel": "latest"
     },
-    "keywords": ["Vector2 Vec2 Coords"],
+    "keywords": [
+        "Vector2 Vec2 Coords"
+    ],
     "license": "",
     "author": ""
 }
