@@ -1,7 +1,7 @@
 
 
 class Vec2 {
-    constructor(x, y = null) {
+    constructor(x=0, y = null) {
         if (x.hasOwnProperty("x")) {
             y = x.y;
             x = x.x;
