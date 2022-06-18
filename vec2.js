@@ -77,6 +77,10 @@ class Vec2 {
 }
 
 
+function vec2(x, y) {
+    return new Vec2(x, y);
+}
+
 
 let _Vec2GlobalStuff = {};
 _Vec2GlobalStuff.previousTouchVec2 = null;
@@ -87,7 +91,7 @@ _Vec2GlobalStuff.pinchDistance = null;
 // https://github.com/jsdom/jsdom/issues/2152
 if (window.Touch !== undefined) {
     Touch.prototype.vec2 = function () {
-        return new Vec2(
+        return vec2(
             this.pageX,
             this.pageY
         );
@@ -116,7 +120,7 @@ Event.prototype.vec2 = function () {
         if (this.touches.length === 0) {
             return _Vec2GlobalStuff.previousTouchVec2;
         }
-        let vec2 = new Vec2(0);
+        let vec2 = vec2(0);
         for (const touch of this.touches) {
             vec2 = vec2.add(touch.vec2());
         }
@@ -125,7 +129,7 @@ Event.prototype.vec2 = function () {
         _Vec2GlobalStuff.previousTouchVec2 = vec2;
         return vec2;
     }
-    return new Vec2(
+    return vec2(
         this.pageX,
         this.pageY
     );
@@ -133,20 +137,20 @@ Event.prototype.vec2 = function () {
 
 
 Element.prototype.getPos = function (topLeft = false) {
-    let pos = new Vec2(this.style.left, this.style.top);
+    let pos = vec2(this.style.left, this.style.top);
     if (!topLeft) pos = pos.add(this.getFullSize().div(2));
     return pos;
 }
 
 Element.prototype.getGlobalPos = function (topLeft = false) {
     const rect = this.getBoundingClientRect();
-    let pos = new Vec2(rect.left + this.clientLeft, rect.top + this.clientTop);
+    let pos = vec2(rect.left + this.clientLeft, rect.top + this.clientTop);
     if (!topLeft) pos = pos.add(this.getFullSize().div(2));
     return pos;
 }
 
 Element.prototype.setPos = function (vec2, topLeft = false) {
-    vec2 = new Vec2(vec2);
+    vec2 = vec2(vec2);
     if (!topLeft) {
         vec2 = vec2.sub(this.getFullSize().div(2))
     }
@@ -156,19 +160,21 @@ Element.prototype.setPos = function (vec2, topLeft = false) {
 }
 
 Element.prototype.getSize = function () {
-    return new Vec2(this.style.width || this.clientWidth, this.style.height || this.clientHeight);
+    return vec2(this.style.width || this.clientWidth, this.style.height || this.clientHeight);
 }
 
 Element.prototype.getFullSize = function () {
-    return new Vec2(this.offsetWidth, this.offsetHeight);
+    return vec2(this.offsetWidth, this.offsetHeight);
 }
 
 Element.prototype.setSize = function (vec2) {
-    vec2 = new Vec2(vec2);
+    vec2 = vec2(vec2);
     this.style.width = vec2.x + "px";
     this.style.height = vec2.y + "px";
 }
 
 
 
-module.exports = Vec2;
+exports.Vec2 = Vec2;
+exports.vec2 = vec2;
+

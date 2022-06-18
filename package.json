@@ -1,8 +1,7 @@
 {
-    "name": "mandera-vec2",
-    "version": "0.0.6",
+    "name": "genvector",
+    "version": "0.0.1",
     "description": "",
-    "main": "vec2.js",
     "scripts": {
         "start": "parcel index.html",
         "build": "parcel build index.html",
