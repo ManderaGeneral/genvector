@@ -162,8 +162,8 @@ Element.prototype.getFullSize = function () {
     return new Vec2(this.offsetWidth, this.offsetHeight);
 }
 
-Element.prototype.setSize = function (vec2) {
-    vec2 = new Vec2(vec2);
+Element.prototype.setSize = function (x, y) {
+    let vec2 = new Vec2(x, y);
     this.style.width = vec2.x + "px";
     this.style.height = vec2.y + "px";
 }

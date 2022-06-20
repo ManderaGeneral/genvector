@@ -127,8 +127,6 @@ test("Vec2 toString", () => {
     expect(new Vec2(3.2, 4.5).toString()).toContain("4.5");
 })
 
-
-
 test("Vec2 get & set pos", () => {
     const ele = document.createElement("div");
     expect(ele.getPos().equals(0)).toBe(true);
@@ -136,6 +134,15 @@ test("Vec2 get & set pos", () => {
     expect(ele.getPos().equals(1, 5)).toBe(true);
     ele.setPos(-3);
     expect(ele.getPos().equals(-3)).toBe(true);
+})
+
+test("Vec2 get & set size", () => {
+    const ele = document.createElement("div");
+    expect(ele.getSize().equals(0)).toBe(true);
+    ele.setSize(1, 5);
+    expect(ele.getSize().equals(1, 5)).toBe(true);
+    ele.setSize(-3);
+    expect(ele.getSize().equals(-3)).toBe(true);
 })
 
 
