@@ -1,0 +1,16 @@
+{
+    "dependencies": [],
+    "devDependencies": [
+        "jest-environment-jsdom",
+        "parcel"
+    ],
+    "enabled": true,
+    "private": false,
+    "name": "genvector",
+    "target": "node",
+    "version": "0.0.2",
+    "description": "Missing description.",
+    "topics": [],
+    "manifest": [],
+    "contribute": false
+}

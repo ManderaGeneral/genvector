@@ -1,20 +1,22 @@
 {
     "name": "genvector",
     "version": "0.0.2",
-    "description": "",
+    "description": "Missing description.",
     "scripts": {
         "start": "parcel index.html",
         "build": "parcel build index.html",
         "test": "jest"
     },
+    "dependencies": {},
     "devDependencies": {
-        "jest": "^28.1.1",
-        "jest-environment-jsdom": "^28.1.1",
+        "jest-environment-jsdom": "latest",
         "parcel": "latest"
     },
     "keywords": [
-        "Vector2 Vec2 Coords"
+        "mit-license",
+        "windows",
+        "ubuntu"
     ],
-    "license": "",
-    "author": ""
+    "license": "mit",
+    "author": "Rickard \"Mandera\" Abraham"
 }
