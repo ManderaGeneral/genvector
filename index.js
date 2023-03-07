@@ -1,2 +1,4 @@
 
-exports.Vec2 = require("./vec2");
+const x = require("genlibrary");
+
+console.log(x)

@@ -7,7 +7,6 @@
         "build": "parcel build index.html",
         "test": "jest"
     },
-    "dependencies": {},
     "devDependencies": {
         "jest-environment-jsdom": "latest",
         "parcel": "latest"
