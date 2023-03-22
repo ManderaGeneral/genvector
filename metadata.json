@@ -1,9 +1,6 @@
 {
     "dependencies": [],
-    "devDependencies": [
-        "jest-environment-jsdom",
-        "parcel"
-    ],
+    "devDependencies": [],
     "enabled": true,
     "private": false,
     "name": "genvector",

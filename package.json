@@ -17,5 +17,8 @@
         "ubuntu"
     ],
     "license": "mit",
-    "author": "Rickard \"Mandera\" Abraham"
+    "author": "Rickard \"Mandera\" Abraham",
+    "dependencies": {
+        "genlibrary": "^0.0.2"
+    }
 }
